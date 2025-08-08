@@ -1,25 +1,33 @@
-Server
+# Streamlit frontend
+streamlit
+streamlit-lottie
+
+# Backend API with FastAPI
 fastapi
 uvicorn[standard]
 
-Data Validation
-pydantic
-
-Environment Variables
+# Environment variable loader
 python-dotenv
 
-HTTP Requests
+# Requests for HTTP operations
 requests
 
-LangChain Core and Integrations
+# LangChain core and integrations
 langchain
-langchain-google-genai
+langchain-core
 langchain-community
+langchain-google-genai
 
-Vector Store and Embeddings
+# Vector store and embedding
 chromadb
 sentence-transformers
-huggingface-hub
+huggingface-hub  # Needed for HuggingFace embeddings
 
-Document Loader
+# PDF processing
 pypdf
+
+# Pydantic for request/response models
+pydantic
+
+# Typing support for Python <3.9
+typing-extensions

@@ -213,9 +213,6 @@ def read_root():
 #    You should see output indicating the Uvicorn server has started on http://127.0.0.1:8000.
 
 if __name__ == "__main__":
-    # This block makes the script directly runnable.
-    # By passing the `app` object directly to uvicorn.run, we avoid issues
-    # where the script's filename doesn't match the string "main:app".
-    # This is a more robust way to run the server for development.
-    uvicorn.run(app, host="127.0.0.1", port=8000)
-
+    # Temporarily using port 8001 for local development
+    port = int(os.environ.get("PORT", 8001)) 
+    uvicorn.run(app, host="0.0.0.0", port=port)

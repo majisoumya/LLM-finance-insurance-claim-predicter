@@ -1,0 +1,126 @@
+/* --- 1. Aurora Background & Global Styles --- */
+@keyframes aurora {
+    from { background-position: 0% 50%; }
+    to { background-position: 100% 50%; }
+}
+
+body {
+    background-color: #111827; /* Dark background for contrast */
+    background-image: linear-gradient(125deg, #1E40AF, #155E75, #4C1D95, #BE185D);
+    background-size: 400% 400%;
+    animation: aurora 15s ease infinite;
+    color: #F9FAFB; /* Light text color for readability */
+}
+
+h1, h3 {
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Remove Streamlit's default white block container */
+.main .block-container {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding-top: 2rem;
+}
+
+/* --- 2. Glassmorphism Containers & Cards --- */
+.glass-container {
+    background: rgba(17, 24, 39, 0.6); /* Semi-transparent dark background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* For Safari */
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 2rem 3rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.glass-card {
+    background: rgba(30, 41, 59, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease-out;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- 3. AI Typing Animation Effect --- */
+.typing-effect {
+    display: inline-block;
+}
+
+.typing-effect p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.05rem;
+    color: #93C5FD; /* A light blue "terminal" color */
+    overflow: hidden; /* Ensures the text is not visible until the animation */
+    white-space: pre-wrap; /* Allows wrapping while typing effect works */
+    letter-spacing: .05em;
+    animation: typing 2.5s steps(70, end) forwards;
+    width: 0;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 4. Refined UI Elements to Match --- */
+.centered-title {
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+div[data-testid="stTextInput"] input {
+    background-color: rgba(17, 24, 39, 0.7);
+    color: #F9FAFB;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+div[data-testid="stTextInput"] input:focus {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    border: 1px solid rgba(96, 165, 250, 0.8);
+}
+
+div[data-testid="stButton"] > button {
+    border-radius: 12px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #3B82F6, #9333EA);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+    border: none;
+    padding: 14px 32px;
+}
+
+div[data-testid="stButton"] > button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(147, 51, 234, 0.6);
+}
+
+/* Hide Streamlit's default result boxes, we'll use our own glass cards */
+div[data-testid="stInfo"], div[data-testid="stSuccess"], div[data-testid="stError"] {
+    display: none;
+}

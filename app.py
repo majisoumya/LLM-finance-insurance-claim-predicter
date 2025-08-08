@@ -57,7 +57,7 @@ with col2:
 # API and Document Inputs
 st.markdown("<h3>⚙️ Configuration</h3>", unsafe_allow_html=True)
 # The FastAPI endpoint URL. Default is for local development.
-api_endpoint = st.text_input("Backend API Endpoint:", "http://127.0.0.1:8000/hackrx/run")
+api_endpoint = st.text_input("Backend API Endpoint:", "https://llm-finance-insurance-claim-predicter-r1hf.onrender.com")
 api_key = st.text_input("API Key:", type="password", help="Your secret API key for the backend service.")
 
 st.markdown("<h3>📄 Document & Questions</h3>", unsafe_allow_html=True)
